@@ -29,69 +29,69 @@ namespace Pract_5_OK_FKS
         //[Fact]
         //public void LoginPage_Title()
         //{
-        //    const string path = "//*[@id=\"mainView\"]/header/div[1]/h1";
-        //    IWebElement pageTitle = _driver.FindElement(By.XPath(path));
+        //    const string pathmainview = "//*[@id=\"mainView\"]/header/div[1]/h1";
+        //    IWebElement pageTitle = _driver.FindElement(By.XPath(pathmainview));
         //    Assert.NotNull(pageTitle);
         //}
 
         //[Fact]
         //public void TestLoginField_ByXPath()
         //{
-        //    string xpath = "//*[@id=\"authUsername\"]\r\n";
-        //    IWebElement usernameInput = _driver.FindElement(By.XPath(xpath));
+        //    string xpathUsernameInput = "//*[@id=\"authUsername\"]\r\n";
+        //    IWebElement usernameInput = _driver.FindElement(By.XPath(xpathUsernameInput));
         //    Assert.NotNull(usernameInput);
         //}
 
         //[Fact]
         //public void TestPasswordField_ByXPath()
         //{
-        //    string xpath = "//*[@id=\"authPassword\"]";
-        //    IWebElement passwordInput = _driver.FindElement(By.XPath(xpath));
+        //    string xpathPasswordInput = "//*[@id=\"authPassword\"]";
+        //    IWebElement passwordInput = _driver.FindElement(By.XPath(xpathPasswordInput));
         //    Assert.True(passwordInput.Displayed);
         //}
 
         //[Fact]
         //public void TestLoginButton_ByXPath()
         //{
-        //    string xpath = "//*[@id=\"authSubmit\"]";
-        //    IWebElement loginButton = _driver.FindElement(By.XPath(xpath));
+        //    string xpathLoginbtn = "//*[@id=\"authSubmit\"]";
+        //    IWebElement loginButton = _driver.FindElement(By.XPath(xpathLoginbtn));
         //    Assert.True(loginButton.Enabled);
         //}
 
         //[Fact]
         //public void TestLoginButton_ByXpath()
         //{
-        //    string xpath = "//*[@id=\"authSubmit\"]";
-        //    IWebElement loginButton = _driver.FindElement(By.XPath(xpath));
-        //    Assert.Contains("Войти", loginButton.Text);
+        //    string xpathLoginbtn = "//*[@id=\"authSubmit\"]";
+        //    IWebElement loginButton = _driver.FindElement(By.XPath(xpathLoginbtn));
+        //    string login = "Войти";
+        //    Assert.Contains(login, loginButton.Text);
         //}
 
         //[Fact]
         //public void TestRegisterLink_ByButton()
         //{
-        //    string xpath = "//*[@id=\"registerTab\"]";
-        //    IWebElement registerLink = _driver.FindElement(By.XPath(xpath));
+        //    string xpathregisterlink = "//*[@id=\"registerTab\"]";
+        //    IWebElement registerLink = _driver.FindElement(By.XPath(xpathregisterlink));
         //    Assert.True(registerLink.Displayed);
         //}
 
         //[Fact]
         //public void TestRegisterLink_ByText()
         //{
-        //    string xpath = "//*[@id=\"registerTab\"]";
-        //    IWebElement registerLink = _driver.FindElement(By.XPath(xpath));
-        //    Assert.NotNull(registerLink);
-        //    string textreb = "Регистрация";
-        //    Assert.Equal(textreb, registerLink.Text);
+        //    string xpathregisterlink = "//*[@id=\"registerTab\"]";
+        //    IWebElement registerLink = _driver.FindElement(By.XPath(xpathregisterlink));
+        //    string textreg = "Регистрация";
+        //    Assert.Equal(textreg, registerLink.Text);
         //}
 
         //[Fact]
         //public void TestRegisterClick_ByText()
         //{
-        //    string xpath = "//*[@id=\"registerTab\"]";
-        //    IWebElement registerLink = _driver.FindElement(By.XPath(xpath));
+        //    string xpathregisterlink = "//*[@id=\"registerTab\"]";
+        //    IWebElement registerLink = _driver.FindElement(By.XPath(xpathregisterlink));
         //    registerLink.Click();
-        //    string xpath2 = "//*[@id=\"authSubmit\"]";
-        //    IWebElement loginButton = _driver.FindElement(By.XPath(xpath2));
+        //    string xpathbutton = "//*[@id=\"authSubmit\"]";
+        //    IWebElement loginButton = _driver.FindElement(By.XPath(xpathbutton));
         //    string textreb = "Зарегистрироваться";
         //    Assert.Equal(textreb, loginButton.Text);
         //}
@@ -99,11 +99,11 @@ namespace Pract_5_OK_FKS
         //[Fact]
         //public void TestRegisterDoubleClick_ByText()
         //{
-        //    string xpath = "//*[@id=\"registerTab\"]";
-        //    IWebElement registerLink = _driver.FindElement(By.XPath(xpath));
+        //    string xpathregisterlink = "//*[@id=\"registerTab\"]";
+        //    IWebElement registerLink = _driver.FindElement(By.XPath(xpathregisterlink));
         //    registerLink.Click();
-        //    string xpath2 = "//*[@id=\"loginTab\"]";
-        //    IWebElement loginLink = _driver.FindElement(By.XPath(xpath2));
+        //    string xpathloginlink = "//*[@id=\"loginTab\"]";
+        //    IWebElement loginLink = _driver.FindElement(By.XPath(xpathloginlink));
         //    loginLink.Click();
         //    string xpathbutton = "//*[@id=\"authSubmit\"]";
         //    IWebElement loginButton = _driver.FindElement(By.XPath(xpathbutton));
@@ -131,8 +131,8 @@ namespace Pract_5_OK_FKS
         //{
         //    string xpathbutton = "//*[@id=\"authSubmit\"]";
         //    IWebElement loginButton = _driver.FindElement(By.XPath(xpathbutton));
-        //    string xpath = "//*[@id=\"authUsername\"]\r\n";
-        //    IWebElement usernameInput = _driver.FindElement(By.XPath(xpath));
+        //    string xpathUsername = "//*[@id=\"authUsername\"]\r\n";
+        //    IWebElement usernameInput = _driver.FindElement(By.XPath(xpathUsername));
         //    usernameInput.SendKeys("1234");
         //    loginButton.Click();
         //    string xpathclass = "//*[@id=\"authSection\"]";
@@ -146,11 +146,11 @@ namespace Pract_5_OK_FKS
         //{
         //    string xpathbutton = "//*[@id=\"authSubmit\"]";
         //    IWebElement loginButton = _driver.FindElement(By.XPath(xpathbutton));
-        //    string xpath = "//*[@id=\"authUsername\"]\r\n";
-        //    IWebElement usernameInput = _driver.FindElement(By.XPath(xpath));
+        //    string xpathUserName = "//*[@id=\"authUsername\"]\r\n";
+        //    IWebElement usernameInput = _driver.FindElement(By.XPath(xpathUserName));
         //    usernameInput.SendKeys("1234");
-        //    string xpath2 = "//*[@id=\"authPassword\"]";
-        //    IWebElement passwordInput = _driver.FindElement(By.XPath(xpath2));
+        //    string xpathPassword = "//*[@id=\"authPassword\"]";
+        //    IWebElement passwordInput = _driver.FindElement(By.XPath(xpathPassword));
         //    usernameInput.SendKeys("12345");
         //    passwordInput.SendKeys("123456");
         //    loginButton.Click();

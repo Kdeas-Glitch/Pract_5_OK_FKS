@@ -101,3 +101,4 @@ C:\Users\HardShop\Desktop\Projects\Pract_5_OK_FKS\Pract_5_OK_FKS\obj\Debug\net8.
 C:\Users\HardShop\Desktop\Projects\Pract_5_OK_FKS\Pract_5_OK_FKS\obj\Debug\net8.0\Pract_5_OK_FKS.pdb
 C:\Users\HardShop\Desktop\Projects\Pract_5_OK_FKS\Pract_5_OK_FKS\obj\Debug\net8.0\Pract_5_OK_FKS.genruntimeconfig.cache
 C:\Users\HardShop\Desktop\Projects\Pract_5_OK_FKS\Pract_5_OK_FKS\obj\Debug\net8.0\ref\Pract_5_OK_FKS.dll
+C:\Users\HardShop\Desktop\Projects\Pract_5_OK_FKS\Pract_5_OK_FKS\obj\Debug\net8.0\Pract_5_OK_FKS.sourcelink.json
