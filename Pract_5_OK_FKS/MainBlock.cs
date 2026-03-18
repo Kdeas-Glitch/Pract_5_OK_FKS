@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.IE;
+
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -25,39 +26,7 @@ namespace Pract_5_OK_FKS
             passwordInput.SendKeys("123456");
             loginButton.Click();
         }
-        private void DeleteAll()
-        {
-            LogIn();
-            string xpathdelete = "//*[@id=\"deleteBtn\"]";
-            IWebElement delete = _driver.FindElement(By.XPath(xpathdelete));
-            string xpath = "//*[@id=\"notesList\"]/li";
-            ReadOnlyCollection<IWebElement> list = _driver.FindElements(By.XPath(xpath));
-            for (int i = 0; i < list.Count - 1; i++)
-            {
-                list[i].Click();
-                delete.Click();
-                IAlert alert = _driver.SwitchTo().Alert();
-                string alertText = alert.Text;
-                Assert.Contains("Удалить заметку? Это действие необратимо.", alert.Text);
-                alert.Accept();
-            }
-            string xpathdelete1 = "//*[@id=\"deleteBtn\"]";
-            IWebElement delete1 = _driver.FindElement(By.XPath(xpathdelete1));
-            string xpath1 = "//*[@id=\"notesList\"]/li";
-            ReadOnlyCollection<IWebElement> lists = _driver.FindElements(By.XPath(xpath));
-            string alertText1;
-            IAlert alert1;
-            for (int i = 0; i < lists.Count; i++)
-            {
-                lists[i].Click();
-                delete1.Click();
-                Thread.Sleep(100);
-                alert1 = _driver.SwitchTo().Alert();
-                alertText1 = alert1.Text;
-                Assert.Contains("Удалить заметку? Это действие необратимо.", alert1.Text);
-                alert1.Accept();
-            }
-        }
+        
         public MainBlock()
         {
             _driver = new ChromeDriver();
@@ -65,153 +34,153 @@ namespace Pract_5_OK_FKS
             _driver.Navigate().GoToUrl(BaseUrl);
         }
 
-        //[Fact]
-        //public void TestMain_BySaveAndDelete()
-        //{
-        //    /*DeleteAll();*/
-        //    LogIn();
-        //    Thread.Sleep(100);
-        //    string xpathtitle = "//*[@id=\"noteTitle\"]";
-        //    IWebElement name = _driver.FindElement(By.XPath(xpathtitle));
-        //    name.SendKeys("1");
-        //    string xpathsavebtn= "//*[@id=\"saveBtn\"]";
-        //    IWebElement save = _driver.FindElement(By.XPath(xpathsavebtn));
-        //    save.Click();
-        //    Thread.Sleep(100);
+        [Fact]
+        public void TestMain_BySaveAndDelete()
+        {
+            /*DeleteAll();*/
+            LogIn();
+            Thread.Sleep(100);
+            string xpathtitle = "//*[@id=\"noteTitle\"]";
+            IWebElement name = _driver.FindElement(By.XPath(xpathtitle));
+            name.SendKeys("1");
+            string xpathsavebtn = "//*[@id=\"saveBtn\"]";
+            IWebElement save = _driver.FindElement(By.XPath(xpathsavebtn));
+            save.Click();
+            Thread.Sleep(100);
 
-        //    string xpathdelete = "//*[@id=\"deleteBtn\"]";
-        //    IWebElement delete = _driver.FindElement(By.XPath(xpathdelete));
-        //    delete.Click();
-        //    Thread.Sleep(100);
+            string xpathdelete = "//*[@id=\"deleteBtn\"]";
+            IWebElement delete = _driver.FindElement(By.XPath(xpathdelete));
+            delete.Click();
+            Thread.Sleep(100);
 
-        //    IAlert alert = _driver.SwitchTo().Alert();
-        //    Assert.Contains("Удалить заметку? Это действие необратимо.", alert.Text);
-        //    alert.Accept();
-        //    Thread.Sleep(100);
-        //    string xpathlist = "//*[@id=\"notesList\"]/li";
-        //    IWebElement list = _driver.FindElement(By.XPath(xpathlist));
-        //    Thread.Sleep(100);
-        //    string empty = "Нет заметок. Создайте первую заметку.";
-        //    Assert.Equal(empty, list.Text);
-        //}
-
-
-        //[Fact]
-        //public void TestLogin_ByLogText()
-        //{
-        //    LogIn();
-        //    Thread.Sleep(100);
-        //    string xpathloginwelcome = "//*[@id=\"welcomeText\"]";
-        //    IWebElement logtext = _driver.FindElement(By.XPath(xpathloginwelcome));
-        //    string logouttext = "Здравствуйте, 1234!";
-        //    Assert.Equal(logouttext, logtext.Text);
-        //}
-
-        //[Fact]
-        //public void TestMain_ByLogout()
-        //{
-        //    LogIn();
-        //    Thread.Sleep(100);
-        //    string xpathlogoutbtn = "//*[@id=\"logoutBtn\"]";
-        //    IWebElement logout = _driver.FindElement(By.XPath(xpathlogoutbtn));
-        //    Assert.True(logout.Displayed);
-        //}
+            IAlert alert = _driver.SwitchTo().Alert();
+            Assert.Contains("Удалить заметку? Это действие необратимо.", alert.Text);
+            alert.Accept();
+            Thread.Sleep(100);
+            string xpathlist = "//*[@id=\"notesList\"]/li";
+            IWebElement list = _driver.FindElement(By.XPath(xpathlist));
+            Thread.Sleep(100);
+            string empty = "Нет заметок. Создайте первую заметку.";
+            Assert.Equal(empty, list.Text);
+        }
 
 
-        //[Fact]
-        //public void TestMain_ByNewText()
-        //{
-        //    LogIn();
-        //    Thread.Sleep(100);
-        //    string xpathnewnote = "//*[@id=\"newNoteBtn\"]";
-        //    IWebElement newtext = _driver.FindElement(By.XPath(xpathnewnote));
-        //    Assert.True(newtext.Displayed);
-        //}
+        [Fact]
+        public void TestLogin_ByLogText()
+        {
+            LogIn();
+            Thread.Sleep(100);
+            string xpathloginwelcome = "//*[@id=\"welcomeText\"]";
+            IWebElement logtext = _driver.FindElement(By.XPath(xpathloginwelcome));
+            string logouttext = "Здравствуйте, 1234!";
+            Assert.Equal(logouttext, logtext.Text);
+        }
+
+        [Fact]
+        public void TestMain_ByLogout()
+        {
+            LogIn();
+            Thread.Sleep(100);
+            string xpathlogoutbtn = "//*[@id=\"logoutBtn\"]";
+            IWebElement logout = _driver.FindElement(By.XPath(xpathlogoutbtn));
+            Assert.True(logout.Displayed);
+        }
 
 
-        //[Fact]
-        //public void TestMain_BySaveButton()
-        //{
-        //    LogIn();
-        //    Thread.Sleep(100);
-        //    string xpathsavebtn = "//*[@id=\"saveBtn\"]";
-        //    IWebElement save = _driver.FindElement(By.XPath(xpathsavebtn));
-        //    Assert.True(save.Displayed);
-        //}
-
-        //[Fact]
-        //public void TestMain_ByInputName()
-        //{
-        //    LogIn();
-        //    Thread.Sleep(100);
-        //    string xpathtitle = "//*[@id=\"noteTitle\"]";
-        //    IWebElement name = _driver.FindElement(By.XPath(xpathtitle));
-        //    Assert.True(name.Displayed);
-        //}
-
-        //[Fact]
-        //public void TestMain_ByDeleteButton()
-        //{
-        //    LogIn();
-        //    Thread.Sleep(100);
-        //    string xpathclassdelete = "//*[@id=\"deleteBtn\"]";
-        //    IWebElement delete = _driver.FindElement(By.XPath(xpathclassdelete));
-        //    Assert.False(delete.Enabled);
-        //}
-
-        //[Fact]
-        //public void TestMain_BySaveSButton()
-        //{
-        //    LogIn();
-        //    Thread.Sleep(100);
-        //    string xpathsave = "//*[@id=\"saveBtn\"]";
-        //    IWebElement save = _driver.FindElement(By.XPath(xpathsave));
-        //    Assert.True(save.Enabled);
-        //}
+        [Fact]
+        public void TestMain_ByNewText()
+        {
+            LogIn();
+            Thread.Sleep(100);
+            string xpathnewnote = "//*[@id=\"newNoteBtn\"]";
+            IWebElement newtext = _driver.FindElement(By.XPath(xpathnewnote));
+            Assert.True(newtext.Displayed);
+        }
 
 
-        //[Fact]
-        //public void TestLogoutClick_ByLogoutText()
-        //{
-        //    LogIn();
-        //    Thread.Sleep(100);
-        //    //Thread.Sleep(10000);
-        //    string xpathlogout = "//*[@id=\"logoutBtn\"]";
-        //    IWebElement logoutButton = _driver.FindElement(By.XPath(xpathlogout));
-        //    logoutButton.Click();
-        //    string warningclass = "//*[@id=\"message\"]/span";
-        //    IWebElement logouttext = _driver.FindElement(By.XPath(warningclass));
-        //    string logoutext = "Вы вышли из системы.";
-        //    Assert.Equal(logoutext, logouttext.Text);
-        //}
+        [Fact]
+        public void TestMain_BySaveButton()
+        {
+            LogIn();
+            Thread.Sleep(100);
+            string xpathsavebtn = "//*[@id=\"saveBtn\"]";
+            IWebElement save = _driver.FindElement(By.XPath(xpathsavebtn));
+            Assert.True(save.Displayed);
+        }
 
-        //[Fact]
-        //public void TestLogInClick_ByLogoutText()
-        //{
-        //    LogIn();
-        //    Thread.Sleep(100);
-        //    string xpathwelcome = "//*[@id=\"welcomeText\"]";
-        //    IWebElement logtext = _driver.FindElement(By.XPath(xpathwelcome));
-        //    string logouttext = "Здравствуйте, 1234!";
-        //    Assert.Equal(logouttext, logtext.Text);
-        //}
+        [Fact]
+        public void TestMain_ByInputName()
+        {
+            LogIn();
+            Thread.Sleep(100);
+            string xpathtitle = "//*[@id=\"noteTitle\"]";
+            IWebElement name = _driver.FindElement(By.XPath(xpathtitle));
+            Assert.True(name.Displayed);
+        }
+
+        [Fact]
+        public void TestMain_ByDeleteButton()
+        {
+            LogIn();
+            Thread.Sleep(100);
+            string xpathclassdelete = "//*[@id=\"deleteBtn\"]";
+            IWebElement delete = _driver.FindElement(By.XPath(xpathclassdelete));
+            Assert.False(delete.Enabled);
+        }
+
+        [Fact]
+        public void TestMain_BySaveSButton()
+        {
+            LogIn();
+            Thread.Sleep(100);
+            string xpathsave = "//*[@id=\"saveBtn\"]";
+            IWebElement save = _driver.FindElement(By.XPath(xpathsave));
+            Assert.True(save.Enabled);
+        }
 
 
-        //[Fact]
-        //public void TestMain_BySave()
-        //{
-        //    LogIn();
-        //    Thread.Sleep(100);
-        //    string xpathtitle = "//*[@id=\"noteTitle\"]";
-        //    IWebElement name = _driver.FindElement(By.XPath(xpathtitle));
-        //    name.SendKeys("1");
-        //    string xpathsave = "//*[@id=\"saveBtn\"]";
-        //    IWebElement save = _driver.FindElement(By.XPath(xpathsave));
-        //    save.Click();
-        //    string xpathlist = "//*[@id=\"notesList\"]/li/strong";
-        //    IWebElement list = _driver.FindElement(By.XPath(xpathlist));
-        //    Assert.Equal("1", list.Text);
-        //}
+        [Fact]
+        public void TestLogoutClick_ByLogoutText()
+        {
+            LogIn();
+            Thread.Sleep(100);
+            //Thread.Sleep(10000);
+            string xpathlogout = "//*[@id=\"logoutBtn\"]";
+            IWebElement logoutButton = _driver.FindElement(By.XPath(xpathlogout));
+            logoutButton.Click();
+            string warningclass = "//*[@id=\"message\"]/span";
+            IWebElement logouttext = _driver.FindElement(By.XPath(warningclass));
+            string logoutext = "Вы вышли из системы.";
+            Assert.Equal(logoutext, logouttext.Text);
+        }
+
+        [Fact]
+        public void TestLogInClick_ByLogoutText()
+        {
+            LogIn();
+            Thread.Sleep(100);
+            string xpathwelcome = "//*[@id=\"welcomeText\"]";
+            IWebElement logtext = _driver.FindElement(By.XPath(xpathwelcome));
+            string logouttext = "Здравствуйте, 1234!";
+            Assert.Equal(logouttext, logtext.Text);
+        }
+
+
+        [Fact]
+        public void TestMain_BySave()
+        {
+            LogIn();
+            Thread.Sleep(100);
+            string xpathtitle = "//*[@id=\"noteTitle\"]";
+            IWebElement name = _driver.FindElement(By.XPath(xpathtitle));
+            name.SendKeys("1");
+            string xpathsave = "//*[@id=\"saveBtn\"]";
+            IWebElement save = _driver.FindElement(By.XPath(xpathsave));
+            save.Click();
+            string xpathlist = "//*[@id=\"notesList\"]/li/strong";
+            IWebElement list = _driver.FindElement(By.XPath(xpathlist));
+            Assert.Equal("1", list.Text);
+        }
 
 
         public void Dispose()

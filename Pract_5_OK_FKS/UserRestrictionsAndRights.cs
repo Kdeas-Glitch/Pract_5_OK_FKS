@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.IE;
+
 using System.Windows;
 
 using Xunit;
@@ -63,66 +64,66 @@ namespace Pract_5_OK_FKS
             alert.Dismiss();
         }
 
-        //[Fact]
-        //public void TestCreateMessage()
-        //{
-        //    LogIn();
-        //    CreateNew("q");
-        //    Thread.Sleep(100);
-        //    string xpathMessage = "//*[@id=\"message\"]/span";
-        //    IWebElement list = _driver.FindElement(By.XPath(xpathMessage));
-        //    string allrgiht = "Заметка создана.";
-        //    Assert.Equal(allrgiht, list.Text);
-        //}
+        [Fact]
+        public void TestCreateMessage()
+        {
+            LogIn();
+            CreateNew("q");
+            Thread.Sleep(100);
+            string xpathMessage = "//*[@id=\"message\"]/span";
+            IWebElement list = _driver.FindElement(By.XPath(xpathMessage));
+            string allrgiht = "Заметка создана.";
+            Assert.Equal(allrgiht, list.Text);
+        }
 
 
-        //[Fact]
-        //public void TestChangeMessage()
-        //{
-        //    LogIn();
-        //    CreateNew("q");
-        //    Thread.Sleep(100);
-        //    string xpathchenge = "//*[@id=\"noteTitle\"]";
-        //    IWebElement change = _driver.FindElement(By.XPath(xpathchenge));
-        //    change.SendKeys("2");
-        //    Thread.Sleep(100);
-        //    string xpathbtn = "//*[@id=\"saveBtn\"]";
-        //    IWebElement save = _driver.FindElement(By.XPath(xpathbtn));
-        //    save.Click();
-        //    Thread.Sleep(100);
-        //    string xpathMessage = "//*[@id=\"message\"]/span";
-        //    IWebElement list = _driver.FindElement(By.XPath(xpathMessage));
-        //    string allrgiht = "Заметка обновлена.";
-        //    Assert.Equal(allrgiht, list.Text);
-        //}
+        [Fact]
+        public void TestChangeMessage()
+        {
+            LogIn();
+            CreateNew("q");
+            Thread.Sleep(100);
+            string xpathchenge = "//*[@id=\"noteTitle\"]";
+            IWebElement change = _driver.FindElement(By.XPath(xpathchenge));
+            change.SendKeys("2");
+            Thread.Sleep(100);
+            string xpathbtn = "//*[@id=\"saveBtn\"]";
+            IWebElement save = _driver.FindElement(By.XPath(xpathbtn));
+            save.Click();
+            Thread.Sleep(100);
+            string xpathMessage = "//*[@id=\"message\"]/span";
+            IWebElement list = _driver.FindElement(By.XPath(xpathMessage));
+            string allrgiht = "Заметка обновлена.";
+            Assert.Equal(allrgiht, list.Text);
+        }
 
-        //[Fact]
-        //public void TestDeleteMessage()
-        //{
-        //    LogIn();
-        //    CreateNew("q");
-        //    Thread.Sleep(100);
-        //    DeleteNew();
-        //    Thread.Sleep(100);
-        //    string xpathMessage = "//*[@id=\"message\"]/span";
-        //    IWebElement list = _driver.FindElement(By.XPath(xpathMessage));
-        //    string allrgiht = "Заметка удалена.";
-        //    Assert.Equal(allrgiht, list.Text);
-        //}
+        [Fact]
+        public void TestDeleteMessage()
+        {
+            LogIn();
+            CreateNew("q");
+            Thread.Sleep(100);
+            DeleteNew();
+            Thread.Sleep(100);
+            string xpathMessage = "//*[@id=\"message\"]/span";
+            IWebElement list = _driver.FindElement(By.XPath(xpathMessage));
+            string allrgiht = "Заметка удалена.";
+            Assert.Equal(allrgiht, list.Text);
+        }
 
-        //[Fact]//fixid
-        //public void TestDeleteMessageNothing()
-        //{
-        //    LogIn();
-        //    string title = "q";
-        //    CreateNew(title);
-        //    Thread.Sleep(100);
-        //    DeleteNewNotAccept();
-        //    Thread.Sleep(100);
-        //    string xpathMessage = "//*[@id=\"notesList\"]/li[1]/strong";
-        //    IWebElement list = _driver.FindElement(By.XPath(xpathMessage));
-        //    Assert.Equal(title, list.Text);
-        //}
+        [Fact]//fixid
+        public void TestDeleteMessageNothing()
+        {
+            LogIn();
+            string title = "q";
+            CreateNew(title);
+            Thread.Sleep(100);
+            DeleteNewNotAccept();
+            Thread.Sleep(100);
+            string xpathMessage = "//*[@id=\"notesList\"]/li[1]/strong";
+            IWebElement list = _driver.FindElement(By.XPath(xpathMessage));
+            Assert.Equal(title, list.Text);
+        }
 
 
         public void Dispose()

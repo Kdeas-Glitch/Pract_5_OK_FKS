@@ -50,76 +50,87 @@ namespace Pract_5_OK_FKS
             IWebElement delete = _driver.FindElement(By.XPath(xpathdelete));
             delete.Click();
         }
+        private void DeleteAll()
+        {
+            
+        }
 
-        //[Fact]
-        //public void TestFind_ByEnterNameAndSearchNotHim()
-        //{
-        //    LogIn();
-        //    CreateNew("q");
-        //    Thread.Sleep(100);
-        //    string xpathfind = "//*[@id=\"searchInput\"]";
-        //    IWebElement find = _driver.FindElement(By.XPath(xpathfind));
-        //    find.SendKeys("q");
-        //    Thread.Sleep(100);
-        //    find.SendKeys("w");
-        //    Thread.Sleep(100);
-        //    string xpathlist = "//*[@id=\"notesList\"]/li";
-        //    IWebElement list = _driver.FindElement(By.XPath(xpathlist));
-        //    Assert.Equal("empty", list.GetAttribute("class"));
-        //}
+        [Fact]
+        public void TestFind_BySearchHim()
+        {
+            DeleteAll();
+            Thread.Sleep(100);
+            CreateNew("q");
+            CreateNew("q");
+            CreateNew("q");
+            Thread.Sleep(100);
+            string xpathfind = "//*[@id=\"searchInput\"]";
+            IWebElement find = _driver.FindElement(By.XPath(xpathfind));
+            find.SendKeys("q");
+            Thread.Sleep(100);
+            string xpathlist = "//*[@id=\"notesList\"]/li";
+            ReadOnlyCollection<IWebElement> list = _driver.FindElements(By.XPath(xpathlist));
+            Thread.Sleep(100);
+            Assert.Equal(2, list.Count);
+            DeleteAll();
+        }
 
-        //[Fact]
-        //public void TestFind_ByEnterNameAndSearchHim()
-        //{
-        //    LogIn();
-        //    CreateNew("q");
-        //    Thread.Sleep(100);
-        //    string xpathfind = "//*[@id=\"searchInput\"]";
-        //    IWebElement find = _driver.FindElement(By.XPath(xpathfind));
-        //    find.SendKeys("q");
-        //    string xpathlist = "//*[@id=\"notesList\"]/li/strong";
-        //    IWebElement list = _driver.FindElement(By.XPath(xpathlist));
-        //    Assert.Equal("q", list.Text);
-        //}
+        [Fact]
+        public void TestFind_ByEnterNameAndSearchNotHim()
+        {
+            DeleteAll();
+            LogIn();
+            CreateNew("q");
+            Thread.Sleep(100);
+            string xpathfind = "//*[@id=\"searchInput\"]";
+            IWebElement find = _driver.FindElement(By.XPath(xpathfind));
+            find.SendKeys("q");
+            Thread.Sleep(100);
+            find.SendKeys("w");
+            Thread.Sleep(100);
+            string xpathlist = "//*[@id=\"notesList\"]/li";
+            IWebElement list = _driver.FindElement(By.XPath(xpathlist));
+            Assert.Equal("empty", list.GetAttribute("class"));
+        }
 
-        //[Fact]
-        //public void TestFind_BySearchHim()
-        //{
-        //    LogIn();
-        //    CreateNew("q");
-        //    CreateNew("q");
-        //    CreateNew("q");
-        //    Thread.Sleep(100);
-        //    string xpathfind = "//*[@id=\"searchInput\"]";
-        //    IWebElement find = _driver.FindElement(By.XPath(xpathfind));
-        //    find.SendKeys("q");
-        //    Thread.Sleep(100);
-        //    string xpathlist = "//*[@id=\"notesList\"]/li";
-        //    ReadOnlyCollection<IWebElement> list = _driver.FindElements(By.XPath(xpathlist));
-        //    Assert.Equal(3, list.Count - 1);
-        //}
+        [Fact]
+        public void TestFind_ByEnterNameAndSearchHim()
+        {
+            LogIn();
+            CreateNew("q");
+            Thread.Sleep(100);
+            string xpathfind = "//*[@id=\"searchInput\"]";
+            IWebElement find = _driver.FindElement(By.XPath(xpathfind));
+            find.SendKeys("q");
+            string xpathlist = "//*[@id=\"notesList\"]/li/strong";
+            IWebElement list = _driver.FindElement(By.XPath(xpathlist));
+            Assert.Equal("q", list.Text);
+        }
 
 
-        //[Fact]
-        //public void TestFind_BySearchHimWithNotMainType()
-        //{
-        //    LogIn();
-        //    CreateNew("q");
-        //    Thread.Sleep(100);
-        //    string xpathfind = "//*[@id=\"searchInput\"]";
-        //    IWebElement find = _driver.FindElement(By.XPath(xpathfind));
-        //    find.SendKeys("q");
-        //    string xpathchoose = "//*[@id=\"noteScopeFilter\"]";
-        //    IWebElement choose = _driver.FindElement(By.XPath(xpathchoose));
-        //    choose.Click();
-        //    string notmain = "//*[@id=\"noteScopeFilter\"]/option[3]";
-        //    IWebElement notmainchoose = _driver.FindElement(By.XPath(notmain));
-        //    notmainchoose.Click();
-        //    Thread.Sleep(100);
-        //    string xpathlist = "//*[@id=\"notesList\"]/li";
-        //    ReadOnlyCollection<IWebElement> list = _driver.FindElements(By.XPath(xpathlist));
-        //    Assert.Equal(0, list.Count - 1);
-        //}
+
+
+        [Fact]
+        public void TestFind_BySearchHimWithNotMainType()
+        {
+            LogIn();
+            CreateNew("q");
+            Thread.Sleep(100);
+            string xpathfind = "//*[@id=\"searchInput\"]";
+            IWebElement find = _driver.FindElement(By.XPath(xpathfind));
+            find.SendKeys("q");
+            string xpathchoose = "//*[@id=\"noteScopeFilter\"]";
+            IWebElement choose = _driver.FindElement(By.XPath(xpathchoose));
+            choose.Click();
+            string notmain = "//*[@id=\"noteScopeFilter\"]/option[3]";
+            IWebElement notmainchoose = _driver.FindElement(By.XPath(notmain));
+            notmainchoose.Click();
+            Thread.Sleep(100);
+            string xpathlist = "//*[@id=\"notesList\"]/li";
+            ReadOnlyCollection<IWebElement> list = _driver.FindElements(By.XPath(xpathlist));
+            Assert.Equal(0, list.Count - 1);
+
+        }
         public void Dispose()
         {
             _driver.Quit();
